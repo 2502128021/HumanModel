@@ -1,3 +1,5 @@
+//using namespace std;
+#include <vector>
 class Point3d
 {
 public:
@@ -40,4 +42,22 @@ public:
 		P2_index = -1;
 	}
 	~Triangle();
+};
+class Mesh
+{
+public:
+	std::vector<Point3d> Vertices;
+	std::vector<Triangle> Faces;
+	int AddVertex(Point3d& toAdd)
+	{
+		int index = Vertices.size();
+		Vertices.push_back(toAdd);
+		return index;
+	}
+	int AddFace(Triangle& tri)
+	{
+		int index = Faces.size();
+		Faces.push_back(tri);
+		return index;
+	}
 };
